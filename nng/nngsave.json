@@ -54,39 +54,48 @@
     },
     {
       "lean": "lemma zero_mul (m : mynat) : 0 * m = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction m with n hn,\nrw mul_zero,\nrefl,\nrw mul_succ,\nrw add_zero,\nrw hn,\nrefl,"
     },
     {
       "lean": "lemma mul_one (m : mynat) : m * 1 = m :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw one_eq_succ_zero,\nrw mul_succ,\nrw mul_zero,\nrw zero_add,\nrefl,"
     },
     {
       "lean": "lemma one_mul (m : mynat) : 1 * m = m :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction m with n hn,\nrw mul_zero,\nrefl,\nrw mul_succ,\nrw hn,\nrw succ_eq_add_one,\nrefl,"
     },
     {
       "lean": "lemma mul_add (t a b : mynat) : t * (a + b) = t * a + t * b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with c hc,\nrw add_zero,\nrw mul_zero,\nrw add_zero,\nrefl,\nrw add_succ,\nrw mul_succ,\nrw mul_succ,\nrw hc,\nsimp,"
     },
     {
       "lean": "lemma mul_assoc (a b c : mynat) : (a * b) * c = a * (b * c) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction c with d hd,\nrw mul_zero,\nrw mul_zero,\nrw mul_zero,\nrefl,\nrw mul_succ,\nrw mul_succ,\nrw mul_add,\nrw hd,\nrefl,"
     },
     {
       "lean": "lemma succ_mul (a b : mynat) : succ a * b = a * b + b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with c hc,\nrw mul_zero,\nrw mul_zero,\nrw add_zero,\nrefl,\nrw mul_succ,\nrw add_succ,\nrw add_succ,\nrw mul_succ,\nrw hc,\nsimp,\n--rw add_right_comm,\n--refl,"
     },
     {
       "lean": "lemma add_mul (a b t : mynat) : (a + b) * t = a * t + b * t :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "-- induction t with c hc,\n-- rw mul_zero,\n-- rw mul_zero,\n-- rw mul_zero,\n-- rw add_zero,\n-- refl,\n-- rw mul_succ,\n-- rw mul_succ,\n-- rw mul_succ,\n-- rw hc,\n-- simp,\n\n-- induction b with c hc,\n-- rw add_zero,\n-- rw zero_mul,\n-- rw add_zero,\n-- refl,\n-- rw add_succ,\n-- rw succ_mul,\n-- rw succ_mul,\n-- rw hc,\n-- simp,\n\ninduction a with c hc,\nrw zero_add,\nrw zero_mul,\nrw zero_add,\nrefl,\nrw succ_add,\nrw succ_mul,\nrw succ_mul,\nrw hc,\nsimp,"
     },
     {
       "lean": "lemma mul_comm (a b : mynat) : a * b = b * a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with c hc,\nrw mul_zero,\nrw zero_mul,\nrefl,\nrw mul_succ,\nrw succ_mul,\nrw hc,\nrefl,\n\n-- induction a with c hc,\n-- rw zero_mul,\n-- rw mul_zero,\n-- refl,\n-- rw succ_mul,\n-- rw mul_succ,\n-- rw hc,\n-- refl,"
     },
     {
       "lean": "lemma mul_left_comm (a b c : mynat) : a * (b * c) = b * (a * c) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction a with x hx,\nrw zero_mul,\nrw zero_mul,\nrw mul_zero,\nrefl,\nrw succ_mul,\nrw succ_mul,\nrw hx,\nrw mul_add,\nrefl,"
     },
     {
       "lean": "lemma zero_pow_zero : (0 : mynat) ^ (0 : mynat) = 1 :=\n",

@@ -229,23 +229,28 @@
     },
     {
       "lean": "example (P Q : Prop) (p : P) (q : Q) : P ∧ Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\nexact p,\nexact q,"
     },
     {
       "lean": "lemma and_symm (P Q : Prop) : P ∧ Q → Q ∧ P :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\ncases h with p q,\nsplit,\nexact q,\nexact p,"
     },
     {
       "lean": "lemma and_trans (P Q R : Prop) : P ∧ Q → Q ∧ R → P ∧ R :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\nintro j,\nsplit,\n\ncases h with p q,\nexact p,\n\ncases j with q r,\nexact r,"
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "----------------------------------------\nintro h,\ncases h with hp hq,\nintro l,\ncases l with lq lr,\nsplit,\n\nintro p,\n--exact lq(hp(p)),\napply lq,\napply hp,\nexact p,\n\nintro r,\n--exact hq(lr(r)),\napply hq,\napply lr,\nexact r,\n\n\n----------------------------------------\n--intro h,\n--intro l,\n--split,\n--\n--intro p,\n--cases h with hp hq,\n--cases l with lq lr,\n--apply lq,\n--apply hp,\n--exact p,\n--\n--intro r,\n--cases h with hp hq,\n--cases l with lq lr,\n--apply hq,\n--apply lr,\n--exact r,\n----------------------------------------"
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "----------------------------------------\n--cc,\n----------------------------------------\nintros hpq hqr,\nsplit,\n\nintro p,\napply hqr.1,\napply hpq.1,\nexact p,\n\nintro r,\napply hpq.2,\napply hqr.2,\nexact r,\n----------------------------------------"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",

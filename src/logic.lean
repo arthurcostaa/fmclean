@@ -11,7 +11,9 @@ variables P Q R : Prop
 theorem doubleneg_intro :
   P → ¬¬P  :=
 begin
-  sorry,
+  intro h,
+  intro hp,
+  exact hp h,
 end
 
 theorem doubleneg_elim :
@@ -33,13 +35,22 @@ end
 theorem disj_comm :
   (P ∨ Q) → (Q ∨ P)  :=
 begin
-  sorry,
+  intro hpq,
+  cases hpq with p q,
+  right,
+  exact p,
+  left,
+  exact q,
 end
 
 theorem conj_comm :
   (P ∧ Q) → (Q ∧ P)  :=
 begin
-  sorry,
+  intro hpq,
+  cases hpq with p q,
+  split,
+  exact q,
+  exact p,
 end
 
 

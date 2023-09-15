@@ -129,9 +129,14 @@ end
 ------------------------------------------------
 
 theorem disj_as_negconj :
-  P∨Q → ¬(¬P∧¬Q)  :=
+  P ∨ Q → ¬(¬P ∧ ¬Q)  :=
 begin
-  sorry,
+  intro h,
+  intro nh,
+  cases nh with np nq,
+  cases h with p q,
+  exact np p,
+  exact nq q,
 end
 
 theorem conj_as_negdisj :

@@ -206,9 +206,21 @@ end
 ------------------------------------------------
 
 theorem distr_conj_disj :
-  P∧(Q∨R) → (P∧Q)∨(P∧R)  :=
+  P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R)  :=
 begin
-  sorry,
+  intro h,
+  cases h with p q_or_r,
+  cases q_or_r with q r,
+  
+  left,
+  split,
+  exact p,
+  exact q,
+  
+  right,
+  split,
+  exact p,
+  exact r,
 end
 
 theorem distr_conj_disj_converse :

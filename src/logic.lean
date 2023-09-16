@@ -352,9 +352,11 @@ begin
 end
 
 theorem weaken_conj_left :
-  (P∧Q) → Q  :=
+  (P ∧ Q) → Q  :=
 begin
-  sorry,
+  intro h,
+  cases h with p q,
+  exact q,
 end
 
 theorem conj_idempot :

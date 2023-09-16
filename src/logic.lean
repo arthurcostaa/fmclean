@@ -360,9 +360,16 @@ begin
 end
 
 theorem conj_idempot :
-  (P∧P) ↔ P :=
+  (P ∧ P) ↔ P :=
 begin
-  sorry,
+  split,
+  intro hpp,
+  cases hpp with p p,
+  exact p,
+  intro hp,
+  split,
+  exact hp,
+  exact hp,
 end
 
 theorem disj_idempot :

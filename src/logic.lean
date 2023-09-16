@@ -216,7 +216,7 @@ begin
   split,
   exact p,
   exact q,
-  
+
   right,
   split,
   exact p,
@@ -224,9 +224,25 @@ begin
 end
 
 theorem distr_conj_disj_converse :
-  (P∧Q)∨(P∧R) → P∧(Q∨R)  :=
+  (P ∧ Q) ∨ (P ∧ R) → P ∧ (Q ∨ R)  :=
 begin
-  sorry,
+  intro h,
+  split,
+  
+  cases h with pq pr,
+  cases pq with p q,
+  exact p,
+  cases pr with p r,
+  exact p,
+
+  cases h with pq pr,
+  cases pq with p q,
+  left,
+  exact q,
+
+  cases pr with p r,
+  right,
+  exact r,
 end
 
 theorem distr_disj_conj :

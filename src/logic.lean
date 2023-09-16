@@ -179,9 +179,14 @@ begin
 end
 
 theorem demorgan_conj_converse :
-  (¬Q ∨ ¬P) → ¬(P∧Q)  :=
+  (¬Q ∨ ¬P) → ¬(P ∧ Q)  :=
 begin
-  sorry,
+  intro h,
+  intro nh,
+  cases nh with p q,
+  cases h with nq np,
+  exact nq q,
+  exact np p,
 end
 
 theorem demorgan_conj_law :

@@ -452,7 +452,7 @@ end
 theorem demorgan_exists_converse :
   (∀x, ¬P x) → ¬(∃x, P x)  :=
 begin
-  sorry,
+  sorry,  
 end
 
 theorem demorgan_forall :
@@ -487,7 +487,11 @@ end
 theorem exists_as_neg_forall :
   (∃x, P x) → ¬(∀x, ¬P x)  :=
 begin
-  sorry,
+  intro h,
+  intro n,
+  cases h with x hx,
+  have nx : ¬P x := n x,
+  exact nx hx,
 end
 
 theorem forall_as_neg_exists :

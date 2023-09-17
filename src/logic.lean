@@ -608,7 +608,14 @@ end
 theorem forall_conj_as_conj_forall_converse :
   (∀x, P x) ∧ (∀x, Q x) → (∀x, P x ∧ Q x)  :=
 begin
-  sorry,
+  intro h,
+  cases h with xpx xqx,
+  intro x,
+  split,
+  have px : P x := xpx x,
+  exact px,
+  have qx : Q x := xqx x,
+  exact qx,
 end
 
 

@@ -111,7 +111,14 @@ end
 theorem impl_as_contrapositive_converse :
   (¬Q → ¬P) → (P → Q)  :=
 begin
-  sorry,
+  intro h,
+  by_cases q : Q,
+  intro p,
+  exact q,
+  intro p,
+  have np : ¬P := h q,
+  exfalso,
+  exact np p,
 end
 
 theorem contrapositive_law :

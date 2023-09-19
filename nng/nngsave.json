@@ -344,19 +344,23 @@
     },
     {
       "lean": "theorem mul_pos (a b : mynat) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro ha,\nintro hb,\nintro hab,\ncases b with x,\n  apply hb,\n  refl,\n  rw mul_succ at hab,\n  have a : a = 0 := add_left_eq_zero hab,\n  exact ha a,"
     },
     {
       "lean": "theorem eq_zero_or_eq_zero_of_mul_eq_zero (a b : mynat) (h : a * b = 0) :\n  a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases a with x,\nleft,\nrefl,\nright,\nrw succ_mul at h,\nhave b : b = 0 := add_left_eq_zero h,\nexact b,"
     },
     {
       "lean": "theorem mul_eq_zero_iff (a b : mynat): a * b = 0 ↔ a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\nintro h,\nexact eq_zero_or_eq_zero_of_mul_eq_zero a b h,\nintro h,\ncases h with a b,\nrw a,\nrw zero_mul,\nrefl,\nrw b,\nrw mul_zero,\nrefl,"
     },
     {
       "lean": "theorem mul_left_cancel (a b c : mynat) (ha : a ≠ 0) : a * b = a * c → b = c :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction c with d hd generalizing b,\nintro h,\nrw mul_zero at h,\nhave d := eq_zero_or_eq_zero_of_mul_eq_zero a b h,\ncases d with h1 h2,\nexfalso,\nexact ha h1,\nexact h2,\n\nintro hb,\ncases b with c,\nrw mul_zero at hb,\nexfalso,\napply ha,\nsymmetry at hb,\nhave e := eq_zero_or_eq_zero_of_mul_eq_zero _ _ hb,\ncases e with a1 a2,\nexact a1,\nexfalso,\nexact succ_ne_zero _ a2,\n\nrw mul_succ at hb,\nrw mul_succ at hb,\nhave j := add_right_cancel _ _ _ hb,\nhave i := hd c j,\nexact succ_eq_succ_of_eq i,"
     },
     {
       "lean": "lemma one_add_le_self (x : mynat) : x ≤ 1 + x :=\n",

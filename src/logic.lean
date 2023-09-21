@@ -231,9 +231,18 @@ begin
 end
 
 theorem demorgan_conj :
-  ¬(P∧Q) → (¬Q ∨ ¬P)  :=
+  ¬(P ∧ Q) → (¬Q ∨ ¬P)  :=
 begin
-  sorry,
+  intro hpq,
+  by_cases P,
+  left,
+  intro nq,
+  apply hpq,
+  split,
+  exact h,
+  exact nq,
+  right,
+  exact h,
 end
 
 theorem demorgan_conj_converse :

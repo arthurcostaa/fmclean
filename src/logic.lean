@@ -31,15 +31,8 @@ theorem doubleneg_law :
   ¬¬P ↔ P  :=
 begin
   split,
-  by_cases p : P,
-  intro h,
-  exact p,
-  intro h,
-  exfalso,
-  exact h p,
-  intro h,
-  intro hp,
-  exact hp h,
+  exact doubleneg_elim P,
+  exact doubleneg_intro P,
 end
 
 ------------------------------------------------
@@ -125,17 +118,8 @@ theorem contrapositive_law :
   (P → Q) ↔ (¬Q → ¬P)  :=
 begin
   split,
-  intros h nq np,
-  have q : Q := h np,
-  exact nq q,
-  intro h,
-  by_cases q : Q,
-  intro p,
-  exact q,
-  intro p,
-  have np : ¬P := h q,
-  exfalso,
-  exact np p,
+  exact impl_as_contrapositive P Q,
+  exact impl_as_contrapositive_converse P Q,
 end
 
 
@@ -260,46 +244,16 @@ theorem demorgan_conj_law :
   ¬(P ∧ Q) ↔ (¬Q ∨ ¬P)  :=
 begin
   split,
-  intro hpq,
-  by_cases p : P,
-  left,
-  intro q,
-  apply hpq,
-  split,
-  exact p,
-  exact q,
-  right,
-  exact p,
-
-  intro h,
-  intro nh,
-  cases nh with p q,
-  cases h with nq np,
-  exact nq q,
-  exact np p,
-
+  exact demorgan_conj P Q,
+  exact demorgan_conj_converse P Q,
 end
 
 theorem demorgan_disj_law :
-  ¬(P∨Q) ↔ (¬P ∧ ¬Q)  :=
+  ¬(P ∨ Q) ↔ (¬P ∧ ¬Q)  :=
 begin
   split,
-  intro h,
-  split,
-  intro p,
-  apply h,
-  left,
-  exact p,
-  intro q,
-  apply h,
-  right,
-  exact q,
-  intro h,
-  intro hpq,
-  cases h with np nq,
-  cases hpq with p q,
-  exact np p,
-  exact nq q,
+  exact demorgan_disj P Q,
+  exact demorgan_disj_converse P Q,
 end
 
 ------------------------------------------------

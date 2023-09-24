@@ -409,15 +409,18 @@
     },
     {
       "lean": "lemma le_succ_self (a : mynat) : a ≤ succ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\nuse 1,\nexact succ_eq_add_one a,"
     },
     {
       "lean": "theorem add_le_add_right {a b : mynat} : a ≤ b → ∀ t, (a + t) ≤ (b + t) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\nintro t,\nrw le_iff_exists_add at h ⊢,\ncases h with c hc,\nuse c,\nrw hc,\nsimp,"
     },
     {
       "lean": "theorem le_of_succ_le_succ (a b : mynat) : succ a ≤ succ b → a ≤ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\nrw le_iff_exists_add at h ⊢,\ncases h with c hc,\nrw succ_add at hc,\nhave abc := succ_inj hc,\nuse c,\nexact abc,"
     },
     {
       "lean": "theorem not_succ_le_self (a : mynat) : ¬ (succ a ≤ a) :=\n",
